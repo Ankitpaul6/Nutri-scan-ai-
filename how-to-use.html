@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use - NutriScan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .how-to-use-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+        
+        .how-to-use-container h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+        
+        .instruction-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .instruction-step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .step-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .step-image {
+            width: 100%;
+            max-width: 500px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .tips-section {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .tips-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .tips-list {
+            list-style-type: none;
+        }
+        
+        .tips-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .tips-list li:before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+        
+        .faq-section {
+            margin-top: 40px;
+        }
+        
+        .faq-item {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .faq-answer {
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .how-to-use-container {
+                padding: 20px;
+                margin: 30px 15px;
+            }
+            
+            .instruction-step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>NutriScan</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="how-to-use.html" class="active">How to Use</a></li>
+                <li><a href="barcode.html">Scan Barcode</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="how-to-use-container">
+            <h2>How to Use NutriScan</h2>
+            
+            <div class="instruction-card">
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Create Your Account</h3>
+                        <p>Start by creating a personal account to get recommendations tailored to your health profile.</p>
+                        <p>Click on the "Login" button in the top navigation bar and select "Register" to create a new account. Fill in your details including age, any health conditions (like diabetes), and dietary preferences.</p>
+                        <img src="images/register.svg" alt="Registration Screen" class="step-image">
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Access the Barcode Scanner</h3>
+                        <p>Once logged in, navigate to the "Scan Barcode" section from the navigation menu.</p>
+                        <p>This will open the camera interface where you can scan product barcodes. Make sure to grant camera permissions when prompted.</p>
+                        <img src="images/scanner.svg" alt="Barcode Scanner" class="step-image">
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Scan a Product</h3>
+                        <p>Hold your device so that the barcode is clearly visible in the camera frame. The app will automatically detect and scan the barcode.</p>
+                        <p>Keep the barcode steady and ensure there's good lighting for faster detection. The scanner works with all standard product barcodes found on packaged foods.</p>
+                        <img src="images/scanning.svg" alt="Scanning a Product" class="step-image">
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Review Nutrition Information</h3>
+                        <p>After scanning, you'll see a complete breakdown of the product's nutrition facts, including:</p>
+                        <ul>
+                            <li>Protein, carbohydrates, fats, sugars, and fiber content</li>
+                            <li>Glycemic Index (GI) score</li>
+                            <li>NutriScore rating (A to E)</li>
+                            <li>EcoScore for environmental impact</li>
+                            <li>Overall health label (Good / OK / Bad)</li>
+                        </ul>
+                        <img src="images/nutrition-info.svg" alt="Nutrition Information" class="step-image">
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Get Personalized Recommendations</h3>
+                        <p>Below the nutrition information, you'll find 5-6 personalized recommendations based on the product and your health profile.</p>
+                        <p>These tips are tailored to your age, health conditions, and dietary preferences to help you make better food choices.</p>
+                        <img src="images/recommendations.svg" alt="Personalized Recommendations" class="step-image">
+                    </div>
+                </div>
+                
+                <div class="instruction-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Use Multilingual Features</h3>
+                        <p>NutriScan supports multiple languages including English, Hindi, and Bengali. You can switch languages from the settings menu.</p>
+                        <p>You can also enable text-to-speech to have the information read aloud in your preferred language.</p>
+                        <img src="images/language.svg" alt="Language Settings" class="step-image">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tips-section">
+                <h3>Pro Tips for Better Results</h3>
+                <ul class="tips-list">
+                    <li>Ensure good lighting when scanning barcodes for faster detection.</li>
+                    <li>Update your health profile regularly for more accurate recommendations.</li>
+                    <li>Use the "Care Mode" feature to monitor family members' food choices remotely.</li>
+                    <li>Check the "Education Module" to understand why certain recommendations are made.</li>
+                    <li>Save frequently scanned items to your favorites for quick access.</li>
+                    <li>Compare similar products to make the healthiest choice.</li>
+                </ul>
+            </div>
+            
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How accurate is the nutrition information?</div>
+                    <div class="faq-answer">NutriScan uses a comprehensive database of food products that is regularly updated. The nutrition information is sourced directly from manufacturer data and verified by our nutrition experts.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What is the Glycemic Index (GI) and why is it important?</div>
+                    <div class="faq-answer">The Glycemic Index measures how quickly a food raises blood sugar levels. Foods with a high GI are rapidly digested and cause significant fluctuations in blood sugar, while low GI foods are digested more slowly, causing a gradual rise in blood sugar. This is particularly important for people with diabetes or those managing their weight.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How does the Care Mode work?</div>
+                    <div class="faq-answer">Care Mode allows designated caregivers to monitor the scan history and receive alerts when certain products are scanned. To enable this feature, go to Settings > Care Mode and add the email address of the caregiver you want to share information with.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I use NutriScan offline?</div>
+                    <div class="faq-answer">NutriScan requires an internet connection to access the product database and provide personalized recommendations. However, previously scanned items are stored locally and can be viewed offline.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do I report a product that's not in the database?</div>
+                    <div class="faq-answer">If a product is not recognized, you can report it by selecting "Product Not Found" after scanning and filling out the product information form. Our team will add it to the database as soon as possible.</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>NutriScan</h2>
+                <p>AI-Powered Nutrition Guidance</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="how-to-use.html">How to Use</a></li>
+                    <li><a href="barcode.html">Scan Barcode</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: info@nutriscan.com</p>
+                <p>Phone: +91 1234567890</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 NutriScan. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

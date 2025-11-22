@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriScan - AI Food Evaluation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        /* Styling for spline background */
+        .features-preview {
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+        .features-preview .spline-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .features-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Overlay to make text readable */
+        .features-preview::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5); /* dark transparent overlay */
+            z-index: 1;
+        }
+        .features-preview h2,
+        .features-preview .features-grid,
+        .features-preview .view-all-btn {
+            position: relative;
+            z-index: 2; /* text above spline + overlay */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>NutriScan</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="how-to-use.html">How to Use</a></li>
+                <li><a href="barcode.html">Scan Barcode</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="welcome-banner" id="userWelcome">
+                Welcome, Guest!
+            </div>
+            <div class="hero-content">
+                <h1>Transform Food Choices with AI-Powered Nutrition Guidance</h1>
+                <p>Scan any barcode for instant, trustworthy, and actionable nutrition information tailored to your health needs.</p>
+                <div class="cta-buttons">
+                    <a href="login.html" class="btn primary-btn">Get Started</a>
+                    <a href="how-to-use.html" class="btn secondary-btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features section with spline background -->
+        <section class="features-preview">
+            <!-- Spline background -->
+            <div class="spline-bg">
+                <iframe src="https://my.spline.design/particlenebula-uy87HD0eulj6odNHkamWqYgy/"
+                        frameborder="0"
+                        allowfullscreen>
+                </iframe>
+            </div>
+
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <a href="features.html" class="feature-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Instant Nutrient Analysis</h3>
+                    <p>Get complete breakdown of protein, carbohydrates, fats, sugars, and fiber with visual scorecards.</p>
+                </a>
+                <a href="features.html" class="feature-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Actionable Health Tips</h3>
+                    <p>Receive 5-6 tailored dietary recommendations based on your age and health status.</p>
+                </a>
+                <a href="features.html" class="feature-card">
+                    <i class="fas fa-language"></i>
+                    <h3>Multilingual Support</h3>
+                    <p>Get information in text and voice format in English, Hindi, and Bengali.</p>
+                </a>
+                <a href="features.html" class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Explainable AI</h3>
+                    <p>Understand why each recommendation was made with transparent rule traces.</p>
+                </a>
+            </div>
+            <a href="features.html" class="btn view-all-btn">View All Features</a>
+        </section>
+
+        <section class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Scan Product Barcode</h3>
+                    <p>Use our app to scan any packaged food product barcode.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Instant Analysis</h3>
+                    <p>Our AI processes the nutrition facts and provides comprehensive scores.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Receive Recommendations</h3>
+                    <p>Get personalized health advice based on your profile and the product.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Make Informed Choices</h3>
+                    <p>Use our guidance to make better food decisions for your health.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-preview">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial">
+                    <div class="quote">"NutriScan has completely changed how I shop for groceries. As a diabetic, the instant GI information has been invaluable."</div>
+                    <div class="author">- Priya S., 45</div>
+                </div>
+                <div class="testimonial">
+                    <div class="quote">"The multilingual feature is fantastic! My parents who only speak Bengali can now understand nutrition information easily."</div>
+                    <div class="author">- Rahul M., 32</div>
+                </div>
+                <div class="testimonial">
+                    <div class="quote">"The Care Mode feature lets me monitor what my elderly father is eating, even from a distance. It's been a game-changer."</div>
+                    <div class="author">- Anita K., 38</div>
+                </div>
+            </div>
+            <a href="testimonials.html" class="btn view-all-btn">View All Testimonials</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>NutriScan</h2>
+                <p>AI-Powered Nutrition Guidance</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="how-to-use.html">How to Use</a></li>
+                    <li><a href="barcode.html">Scan Barcode</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: info@nutriscan.com</p>
+                <p>Phone: +91 1234567890</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 NutriScan. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Scanner - NutriScan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { background-color: #000; color: #fff; font-family: 'Poppins', sans-serif; }
+        .scanner-container {
+            max-width: 800px; margin: 40px auto; padding: 25px;
+            background: #111; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        h2 { text-align: center; color: #00c896; }
+        .video-container { border: 2px solid #00c896; border-radius: 10px; overflow: hidden; margin: 20px auto; width: 100%; max-width: 500px; }
+        #video { width: 100%; border-radius: 10px; }
+        #canvas { display: none; }
+        .scan-button, .submit-barcode-button {
+            display: block; margin: 15px auto; padding: 10px 25px;
+            background: #00c896; border: none; border-radius: 30px; color: #fff;
+            cursor: pointer; font-weight: bold;
+        }
+        .manual-input-container { text-align: center; margin-top: 20px; }
+        .manual-barcode-input {
+            padding: 10px; width: 60%; border-radius: 8px; border: none; outline: none; text-align: center;
+        }
+        .result-container { display: none; background: #1a1a1a; padding: 20px; border-radius: 10px; margin-top: 25px; }
+        .nutrition-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 15px; }
+        .nutrition-item { background: #222; border-radius: 8px; padding: 10px; text-align: center; }
+        .nutrition-label { font-size: 0.9rem; color: #bbb; }
+        .nutrition-value { font-size: 1.1rem; font-weight: 600; color: #fff; }
+        .scores-container { display: flex; justify-content: space-around; margin-top: 20px; flex-wrap: wrap; }
+        .score-item { background: #222; border-radius: 8px; padding: 10px 20px; text-align: center; }
+        .health-label-container { text-align: center; margin-top: 20px; }
+        .health-label { font-size: 1.5rem; font-weight: 700; border-radius: 25px; padding: 8px 20px; display: inline-block; }
+        .health-good { background: #00c896; color: #fff; }
+        .health-ok { background: #ffc107; color: #000; }
+        .health-bad { background: #ff4d4d; color: #fff; }
+        .tips-container { background: #222; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .tips-title { color: #00c896; margin-bottom: 10px; font-weight: 600; }
+
+        /* Food Tracking Section */
+        .food-tracking-container { margin-top: 50px; }
+        .tracked-items-list { background: #1a1a1a; border-radius: 10px; padding: 10px; margin-top: 10px; }
+        .tracked-item { display: flex; justify-content: space-between; background: #222; border-radius: 6px; padding: 8px 12px; margin: 6px 0; }
+        .score-good { color: #00c896; } .score-ok { color: #ffc107; } .score-bad { color: #ff4d4d; }
+        .tracking-stats { display: flex; justify-content: space-between; background: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+        .stat-item { text-align: center; }
+        .stat-label { color: #aaa; } .stat-value { font-weight: bold; font-size: 1.2rem; }
+        .tracking-actions { display: flex; justify-content: space-around; margin-top: 15px; }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="scanner-container">
+            <h2>Barcode Scanner</h2>
+            <p style="text-align:center;">Scan or enter a barcode to get instant nutrition info & fitness tips!</p>
+
+            <div class="video-container">
+                <video id="video" playsinline></video>
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <button id="scanBtn" class="scan-button">Start Camera Scan</button>
+
+            <div class="manual-input-container">
+                <input type="text" id="manualBarcodeInput" class="manual-barcode-input" placeholder="Enter barcode manually">
+                <button id="submitBarcodeBtn" class="submit-barcode-button">Submit</button>
+            </div>
+
+            <div id="loadingIndicator" style="display:none;text-align:center;">
+                <div class="spinner"></div>
+                <p>Analyzing product...</p>
+            </div>
+
+            <div id="resultContainer" class="result-container">
+                <h3 id="productName"></h3>
+                <p id="barcodeValue"></p>
+                <div class="nutrition-grid">
+                    <div class="nutrition-item"><div class="nutrition-label">Protein</div><div id="proteinValue" class="nutrition-value"></div></div>
+                    <div class="nutrition-item"><div class="nutrition-label">Carbs</div><div id="carbsValue" class="nutrition-value"></div></div>
+                    <div class="nutrition-item"><div class="nutrition-label">Fat</div><div id="fatValue" class="nutrition-value"></div></div>
+                    <div class="nutrition-item"><div class="nutrition-label">Sugar</div><div id="sugarValue" class="nutrition-value"></div></div>
+                    <div class="nutrition-item"><div class="nutrition-label">Fiber</div><div id="fiberValue" class="nutrition-value"></div></div>
+                </div>
+
+                <div class="scores-container">
+                    <div class="score-item"><div class="nutrition-label">NutriScore</div><div id="nutriscoreValue" class="nutrition-value">N/A</div></div>
+                    <div class="score-item"><div class="nutrition-label">EcoScore</div><div id="ecoscoreValue" class="nutrition-value">N/A</div></div>
+                </div>
+
+                <div class="health-label-container">
+                    <div class="health-label health-good" id="healthLabel">Good</div>
+                </div>
+
+                <div class="tips-container">
+                    <div class="tips-title">Personalized Fitness Tips</div>
+                    <ul id="nutritionTips"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Food Tracking Section -->
+        <div class="scanner-container food-tracking-container">
+            <h2><i class="fas fa-history"></i> Your Food Tracking History</h2>
+            <div class="tracking-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Total Items Scanned</div>
+                    <div class="stat-value" id="totalScanned">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Average Health Score</div>
+                    <div class="stat-value" id="avgHealthScore">N/A</div>
+                </div>
+            </div>
+            <div class="tracked-items-list" id="trackedItemsList">
+                <div class="empty-state">
+                    <p>No items scanned yet. Start scanning to track your diet!</p>
+                </div>
+            </div>
+            <div class="tracking-actions">
+                <button class="scan-button" id="clearTrackingBtn">Clear History</button>
+                <button class="scan-button" id="exportTrackingBtn">Export Data</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>

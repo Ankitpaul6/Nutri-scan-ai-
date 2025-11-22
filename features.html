@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - NutriScan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .features-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+        
+        .features-container h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+        
+        .features-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .feature-section {
+            margin-bottom: 80px;
+        }
+        
+        .feature-section h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: center;
+        }
+        
+        .feature-description {
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        .feature-highlight {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            margin-top: 60px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .feature-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .feature-content h3 {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .feature-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .feature-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            margin-top: 20px;
+        }
+        
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 60px 20px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .features-container {
+                padding: 20px;
+                margin: 30px 15px;
+            }
+            
+            .feature-highlight {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            .feature-content h3 {
+                text-align: center;
+            }
+        }
+    </style>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>NutriScan</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html" class="active">Features</a></li>
+                <li><a href="how-to-use.html">How to Use</a></li>
+                <li><a href="barcode.html">Scan Barcode</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="features-container">
+            <h2>NutriScan Features</h2>
+            
+            <div class="features-intro">
+                <p>NutriScan transforms a simple barcode scan into instant, trustworthy, and actionable nutrition guidance. Discover how our AI-powered features can help you make healthier food choices.</p>
+            </div>
+            
+            <div class="feature-highlight">
+                <div class="feature-content">
+                    <h3>Instant Nutrient Analysis</h3>
+                    <p>Scan any packaged food barcode and immediately receive a complete breakdown of its nutritional content, including protein, carbohydrates, fats, sugars, and fiber.</p>
+                    <p>Our AI algorithms analyze this data to provide you with visual scorecards that make it easy to understand the nutritional value at a glance.</p>
+                    <ul class="feature-list">
+                        <li>Comprehensive nutrient breakdown</li>
+                        <li>Glycemic Index (GI) calculation</li>
+                        <li>NutriScore rating (A to E)</li>
+                        <li>EcoScore for environmental impact</li>
+                        <li>Clear health label (Good / OK / Bad)</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="https://images.pexels.com/photos/7580294/pexels-photo-7580294.jpeg" alt="Nutrient Analysis">
+                </div>
+            </div>
+            
+            <div class="feature-section">
+                <h3>Core Features</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 class="feature-title">Personalized Recommendations</h4>
+                        <p class="feature-description">Receive 5-6 tailored dietary tips for each product based on your age, health status, and dietary preferences. Our AI considers your specific needs to provide the most relevant advice.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h4 class="feature-title">Multilingual Support</h4>
+                        <p class="feature-description">Access information in both text and voice format in multiple languages including English, Hindi, and Bengali, making nutrition information accessible to diverse users.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 class="feature-title">Explainable AI</h4>
+                        <p class="feature-description">Understand why each recommendation was made through our Education Module, which provides transparent rule traces and short educational notes for each suggestion.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h4 class="feature-title">Care Mode</h4>
+                        <p class="feature-description">Enable caregivers to monitor scan history remotely and receive instant safety alerts, making it easier to support family members with specific dietary needs.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4 class="feature-title">Health Risk Detection</h4>
+                        <p class="feature-description">Automatically flag diabetes-related risks by detecting high sugar/carbohydrate patterns and highlighting immediate concerns based on your health profile.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h4 class="feature-title">Customizable Profiles</h4>
+                        <p class="feature-description">Configure your personal profile with age, known health conditions (e.g., diabetes), and dietary preferences to receive the most relevant recommendations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-highlight">
+                <div class="feature-image">
+                    <img src="https://images.pexels.com/photos/33440147/pexels-photo-33440147.jpeg" alt="Multilingual Support">
+                </div>
+                <div class="feature-content">
+                    <h3>Multilingual Text and Voice</h3>
+                    <p>NutriScan breaks language barriers by providing nutrition information in multiple languages, making healthy eating accessible to everyone.</p>
+                    <p>Our natural Text-to-Speech (TTS) technology converts recommendations into clear voice guidance in English, Hindi, and Bengali, helping users who prefer auditory learning or have visual impairments.</p>
+                    <ul class="feature-list">
+                        <li>Text display in multiple languages</li>
+                        <li>Natural-sounding voice output</li>
+                        <li>Easy language switching</li>
+                        <li>Accessibility for diverse users</li>
+                        <li>Support for regional dialects</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="feature-highlight">
+                <div class="feature-content">
+                    <h3>Care Mode for Guardians</h3>
+                    <p>Care Mode enables family members and caregivers to monitor the food choices of their loved ones remotely, providing peace of mind and support.</p>
+                    <p>Guardians receive instant alerts when potentially problematic foods are scanned, allowing for timely intervention and guidance.</p>
+                    <ul class="feature-list">
+                        <li>Shared scan history between users</li>
+                        <li>Real-time safety alerts</li>
+                        <li>Remote monitoring capabilities</li>
+                        <li>Customizable alert thresholds</li>
+                        <li>Privacy controls for shared information</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg" alt="Care Mode">
+                </div>
+            </div>
+            
+            <div class="feature-section">
+                <h3>Technical Features</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4 class="feature-title">Comprehensive Food Database</h4>
+                        <p class="feature-description">Access information on millions of food products with regularly updated nutritional data to ensure accuracy and relevance.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4 class="feature-title">Real-time Processing</h4>
+                        <p class="feature-description">Get instant results with our optimized algorithms that process nutrition data and generate recommendations in seconds.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4 class="feature-title">Cloud Synchronization</h4>
+                        <p class="feature-description">Access your scan history and preferences across multiple devices with secure cloud synchronization.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4 class="feature-title">Data Privacy</h4>
+                        <p class="feature-description">Rest assured that your personal health data and scan history are protected with industry-standard encryption and privacy controls.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h3>Ready to Make Healthier Food Choices?</h3>
+                <p>Start using NutriScan today and transform the way you shop for food with AI-powered nutrition guidance.</p>
+                <a href="login.html" class="btn primary-btn">Get Started</a>
+                <a href="how-to-use.html" class="btn secondary-btn">Learn How It Works</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>NutriScan</h2>
+                <p>AI-Powered Nutrition Guidance</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="how-to-use.html">How to Use</a></li>
+                    <li><a href="barcode.html">Scan Barcode</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: info@nutriscan.com</p>
+                <p>Phone: +91 1234567890</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 NutriScan. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
